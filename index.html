@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Between the Pages | Literary Archive</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #17120f;
+    color: #e8dfcf;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+/* NAVIGATION */
+
+nav {
+    height: 48px;
+    background: #17120f;
+    border-bottom: 1px solid rgba(190,160,110,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: #d5bd91;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #8c806f;
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #b9aa91;
+    font-size: 10px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e2c48b;
+}
+
+.search {
+    color: #c8b68f;
+    font-size: 14px;
+}
+
+/* HERO */
+
+.hero {
+    height: 330px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(24,18,14,0.48),
+            rgba(24,18,14,0.72)
+        ),
+        url('images/hero/hero-manuscript.jpg');
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 650px;
+    padding: 25px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 6vw, 58px);
+    font-weight: 500;
+    color: #f0e6d5;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: #d4b879;
+    font-style: italic;
+    margin-top: 2px;
+}
+
+.hero-description {
+    font-size: 11px;
+    line-height: 2;
+    color: #d0c5b4;
+    margin: 15px auto;
+    max-width: 450px;
+}
+
+.hero-button {
+    display: inline-block;
+    background: #d0b77f;
+    color: #241b14;
+    padding: 9px 23px;
+    text-decoration: none;
+    font-size: 10px;
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: #ead6a8;
+}
+
+/* INTRODUCTION */
+
+.intro {
+    padding: 28px 20px 35px;
+    text-align: center;
+    border-bottom: 1px solid rgba(190,160,110,0.18);
+}
+
+.intro p {
+    max-width: 570px;
+    margin: auto;
+    color: #b9ad9b;
+    font-size: 11px;
+    line-height: 2.3;
+}
+
+/* ARCHIVE SECTION */
+
+.archive {
+    padding: 20px 6% 60px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    color: #e6d7bd;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    color: #a99a83;
+    font-size: 11px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+
+    nav {
+        padding: 0 15px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .search {
+        display: none;
+    }
+
+    .hero {
+        height: 310px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero-subtitle {
+        font-size: 19px;
+    }
+
+    .hero-description {
+        font-size: 10px;
+    }
+
+    .intro {
+        padding: 25px 22px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+
+        <div class="logo">
+            Between the Pages
+            <span>Literary Archive</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">خانه</a>
+            <a href="books.html">کتاب‌ها</a>
+            <a href="reading-list.html">لیست مطالعه</a>
+            <a href="quotes.html">نقل‌قول‌ها</a>
+            <a href="#about">درباره</a>
+        </div>
+
+        <div class="search">⌕</div>
+
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Between the Pages</h1>
+
+            <div class="hero-subtitle">
+                A Personal Literary Archive
+            </div>
+
+            <p class="hero-description">
+                A collection of stories, thoughts, and words
+                that remain long after the final page.
+                An archive of books, memories, and favorite passages.
+            </p>
+
+            <a href="books.html" class="hero-button">
+                Explore the Archive
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="intro" id="about">
+
+        <p>
+            Between the Pages is a personal literary archive,
+            created to preserve the stories I've read,
+            the books waiting to be discovered,
+            and the words that have left a mark.
+            Every book holds a world, and every page
+            carries a memory worth keeping.
+        </p>
+
+    </section>
+
+    <section class="archive">
+
+        <h2 class="section-title">
+            What This Archive Offers
+        </h2>
+
+        <p class="section-subtitle">
+            A place for books, stories, and words worth remembering.
+        </p>
+
+    </section>
+
+</main>
+
+</body>
+  </html>
