@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reading List | Between the Pages</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #17120f;
+    color: #e8dfcf;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+nav {
+    min-height: 58px;
+    background: #17120f;
+    border-bottom: 1px solid #443528;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 6%;
+    gap: 15px;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    color: #d5bd91;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #b9aa91;
+    font-size: 11px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #e2c48b;
+}
+
+.page-header {
+    text-align: center;
+    padding: 65px 20px 35px;
+}
+
+.page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: #e6d7bd;
+}
+
+.page-header p {
+    color: #b9aa91;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 65px;
+    padding: 25px 15px;
+    border-top: 1px solid #443528;
+    border-bottom: 1px solid #443528;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    color: #d5bd91;
+}
+
+.stat span {
+    font-size: 10px;
+    color: #b9aa91;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 35px 15px;
+}
+
+.filter {
+    background: transparent;
+    border: 1px solid #766044;
+    color: #d5bd91;
+    padding: 8px 20px;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter.active,
+.filter:hover {
+    background: #d5bd91;
+    color: #17120f;
+}
+
+.books-grid {
+    max-width: 1100px;
+    margin: auto;
+    padding: 10px 30px 70px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 40px 25px;
+}
+
+.book {
+    text-align: center;
+    color: inherit;
+    display: block;
+}
+
+.book img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    background: #30251d;
+    border: 1px solid #766044;
+    transition: 0.3s;
+}
+
+.book:hover img {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px #0008;
+}
+
+.book h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 500;
+    margin-top: 12px;
+    color: #e6d7bd;
+}
+
+.book-author {
+    font-size: 10px;
+    color: #a99a83;
+    margin-top: 4px;
+}
+
+.book-translator {
+    font-size: 10px;
+    color: #a99a83;
+    margin-top: 3px;
+}
+
+.book-status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 1px solid #766044;
+    color: #d5bd91;
+    font-size: 9px;
+}
+
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #a99a83;
+    padding: 60px 15px;
+    font-size: 13px;
+    line-height: 2.5;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #443528;
+    color: #8c806f;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+@media(max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .page-header h1 {
+        font-size: 38px;
+    }
+
+    .stats {
+        gap: 25px;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Between the Pages</div>
+
+    <div class="nav-links">
+        <a href="index.html">خانه</a>
+        <a href="books.html">کتاب‌ها</a>
+        <a href="reading-list.html" class="active">لیست مطالعه</a>
+        <a href="quotes.html">نقل‌قول‌ها</a>
+    </div>
+</nav>
+
+<header class="page-header">
+    <h1>My Reading List</h1>
+    <p>Stories waiting to become memories.</p>
+</header>
+
+<section class="stats">
+    <div class="stat">
+        <strong id="totalBooks">0</strong>
+        <span>کتاب‌های در انتظار</span>
+    </div>
+
+    <div class="stat">
+        <strong id="totalPages">0</strong>
+        <span>مجموع صفحات</span>
+    </div>
+</section>
+
+<section class="filters" id="genreFilters">
+    <button class="filter active" data-genre="ALL">ALL</button>
+</section>
+
+<main class="books-grid" id="booksGrid">
+    <p class="empty-message">در حال بارگذاری کتاب‌ها...</p>
+</main>
+
+<footer>
+    Between the Pages · A Personal Literary Archive
+</footer>
+
+<script src="books.js"></script>
+
+<script>
+
+const grid = document.getElementById('booksGrid');
+const filters = document.getElementById('genreFilters');
+
+const readingBooks = books.filter(
+    book => book.status === 'want_to_read'
+);
+
+function renderStats() {
+    const total = readingBooks.length;
+
+    const pages = readingBooks.reduce(
+        (sum, book) => sum + Number(book.pages || 0), 0
+    );
+
+    document.getElementById('totalBooks').textContent = total;
+
+    document.getElementById('totalPages').textContent =
+        pages.toLocaleString('fa-IR');
+}
+
+function renderFilters() {
+    const genres = [...new Set(
+        readingBooks.map(book => book.genre).filter(Boolean)
+    )];
+
+    genres.forEach(genre => {
+        const button = document.createElement('button');
+
+        button.className = 'filter';
+        button.dataset.genre = genre;
+        button.textContent = genre;
+
+        filters.appendChild(button);
+    });
+}
+
+function renderBooks(genre = 'ALL') {
+    grid.innerHTML = '';
+
+    const filteredBooks = genre === 'ALL'
+        ? readingBooks
+        : readingBooks.filter(book => book.genre === genre);
+
+    if (filteredBooks.length === 0) {
+        grid.innerHTML = `
+            <p class="empty-message">
+                هنوز کتابی در لیست مطالعه ثبت نشده است.
+            </p>
+        `;
+        return;
+    }
+
+    filteredBooks.forEach(book => {
+        const card = document.createElement('a');
+
+        card.className = 'book';
+        card.href = `book-details.html?id=${encodeURIComponent(book.id)}`;
+
+        const image = document.createElement('img');
+        image.src = book.cover || 'images/covers/default.jpg';
+        image.alt = book.title;
+        image.loading = 'lazy';
+
+        const title = document.createElement('h3');
+        title.textContent = book.title;
+
+        const author = document.createElement('p');
+        author.className = 'book-author';
+        author.textContent = book.author || '';
+
+        const translator = document.createElement('p');
+        translator.className = 'book-translator';
+        translator.textContent = book.translator
+            ? `مترجم: ${book.translator}`
+            : '';
+
+        const status = document.createElement('span');
+        status.className = 'book-status';
+        status.textContent = 'در انتظار مطالعه';
+
+        card.append(image, title, author, translator, status);
+
+        grid.appendChild(card);
+    });
+}
+
+filters.addEventListener('click', function(event) {
+    const button = event.target.closest('.filter');
+
+    if (!button) return;
+
+    document.querySelectorAll('.filter').forEach(item => {
+        item.classList.remove('active');
+    });
+
+    button.classList.add('active');
+
+    renderBooks(button.dataset.genre);
+});
+
+renderStats();
+renderFilters();
+renderBooks();
+
+</script>
+
+</body>
+</html>
