@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Quotes | Between the Pages</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #17120f;
+            color: #f4eadb;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        header {
+            background: #211914;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #49382b;
+        }
+
+        .logo {
+            color: #d6b77a;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #e8dccb;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d6b77a;
+        }
+
+        .page-intro {
+            text-align: center;
+            padding: 75px 20px 45px;
+        }
+
+        .page-intro h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 55px;
+            color: #d6b77a;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .page-intro p {
+            color: #b9a999;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .divider {
+            width: 55px;
+            height: 1px;
+            background: #a77b4f;
+            margin: 25px auto;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 15px 7% 40px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #594333;
+            color: #d7c7b5;
+            padding: 9px 20px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #a77b4f;
+            color: #17120f;
+            border-color: #a77b4f;
+        }
+
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 35px;
+            padding: 10px 8% 90px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .book-card {
+            text-decoration: none;
+            color: inherit;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .book-cover {
+            width: 100%;
+            max-width: 210px;
+            height: 290px;
+            object-fit: cover;
+            border: 1px solid #594333;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+            transition: 0.3s;
+        }
+
+        .book-card:hover .book-cover {
+            border-color: #d6b77a;
+            box-shadow: 0 12px 30px rgba(214,183,122,0.12);
+        }
+
+        .book-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 23px;
+            color: #e9d8bd;
+            margin-top: 17px;
+        }
+
+        .book-author {
+            color: #a99582;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .empty-message {
+            display: none;
+            text-align: center;
+            color: #b9a999;
+            padding: 40px 20px 100px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #49382b;
+            color: #8e7b69;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-intro h1 {
+                font-size: 42px;
+            }
+
+            .quotes-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 25px 15px;
+                padding: 10px 5% 60px;
+            }
+
+            .book-cover {
+                height: 230px;
+            }
+
+            .book-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Between the Pages</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="books.html">My Books</a>
+            <a href="reading-list.html">Reading List</a>
+            <a href="quotes.html">Favorite Quotes</a>
+        </nav>
+    </header>
+
+    <section class="page-intro">
+        <h1>Favorite Quotes</h1>
+        <p>Words worth keeping, moments worth remembering.</p>
+        <div class="divider"></div>
+    </section>
+
+    <section class="filters" id="genreFilters">
+        <button class="filter-btn active" data-genre="ALL">ALL</button>
+    </section>
+
+    <main class="quotes-grid" id="quotesGrid"></main>
+
+    <div class="empty-message" id="emptyMessage">
+        No quotes have been added yet.
+    </div>
+
+    <footer>
+        BETWEEN THE PAGES — A PERSONAL LITERARY ARCHIVE
+    </footer>
+
+    <script src="books.js"></script>
+    <script src="quotes.js"></script>
+
+    <script>
+        const quotesGrid = document.getElementById("quotesGrid");
+        const genreFilters = document.getElementById("genreFilters");
+        const emptyMessage = document.getElementById("emptyMessage");
+
+        let selectedGenre = "ALL";
+
+        function getBooksWithQuotes() {
+            return books.filter(book =>
+                quotes.some(quote => quote.bookId === book.id)
+            );
+        }
+
+        function createGenreFilters() {
+            const genres = [
+                ...new Set(
+                    getBooksWithQuotes()
+                        .map(book => book.genre)
+                        .filter(Boolean)
+                )
+            ];
+
+            genres.forEach(genre => {
+                const button = document.createElement("button");
+
+                button.className = "filter-btn";
+                button.textContent = genre;
+                button.dataset.genre = genre;
+
+                button.addEventListener("click", () => {
+                    selectedGenre = genre;
+                    updateActiveFilter();
+                    displayBooks();
+                });
+
+                genreFilters.appendChild(button);
+            });
+        }
+
+        function updateActiveFilter() {
+            document.querySelectorAll(".filter-btn").forEach(button => {
+                button.classList.toggle(
+                    "active",
+                    button.dataset.genre === selectedGenre
+                );
+            });
+        }
+
+        function displayBooks() {
+            quotesGrid.innerHTML = "";
+
+            const filteredBooks = getBooksWithQuotes().filter(book => {
+                return selectedGenre === "ALL" ||
+                       book.genre === selectedGenre;
+            });
+
+            emptyMessage.style.display =
+                filteredBooks.length === 0 ? "block" : "none";
+
+            filteredBooks.forEach(book => {
+                const card = document.createElement("a");
+
+                card.className = "book-card";
+                card.href = `book-quotes.html?id=${encodeURIComponent(book.id)}`;
+
+                card.innerHTML = `
+                    <img
+                        class="book-cover"
+                        src="${book.cover || 'images/default-cover.jpg'}"
+                        alt="${book.title}"
+                    >
+
+                    <h2 class="book-title">${book.title}</h2>
+
+                    <p class="book-author">${book.author || ""}</p>
+                `;
+
+                quotesGrid.appendChild(card);
+            });
+        }
+
+        document.querySelector('[data-genre="ALL"]')
+            .addEventListener("click", () => {
+                selectedGenre = "ALL";
+                updateActiveFilter();
+                displayBooks();
+            });
+
+        createGenreFilters();
+        displayBooks();
+    </script>
+
+</body>
+</html>
