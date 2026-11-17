@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Book Quotes | Between the Pages</title>
+    <title>Book Details | Between the Pages</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -53,22 +53,56 @@
             color: #d6b77a;
         }
 
-        .page-title {
+        .fanart-banner {
+            width: 100%;
+            height: 440px;
+            overflow: hidden;
+            position: relative;
+            background: #302219;
+        }
+
+        .fanart-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .fanart-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 35%,
+                rgba(23, 18, 15, 0.85)
+            );
+        }
+
+        .book-container {
+            max-width: 1150px;
+            margin: -70px auto 0;
+            padding: 0 6% 90px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-heading {
             text-align: center;
-            padding: 65px 20px 40px;
+            margin-bottom: 50px;
         }
 
-        .page-title h1 {
+        .book-heading h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 48px;
+            font-size: 55px;
+            color: #e6c994;
             font-weight: 500;
-            color: #d6b77a;
         }
 
-        .page-title p {
+        .book-heading p {
             color: #b9a999;
-            font-size: 14px;
             margin-top: 10px;
+            font-size: 14px;
         }
 
         .divider {
@@ -78,104 +112,101 @@
             margin: 22px auto;
         }
 
-        .content {
-            max-width: 1250px;
-            margin: 0 auto;
-            padding: 20px 6% 90px;
+        .book-info {
             display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 65px;
+            grid-template-columns: 240px 1fr;
+            gap: 55px;
             align-items: start;
         }
 
-        .fanart-container {
-            position: sticky;
-            top: 30px;
-        }
-
-        .fanart {
+        .cover-container img {
             width: 100%;
-            min-height: 500px;
-            max-height: 750px;
+            max-width: 240px;
+            height: 350px;
             object-fit: cover;
             border: 1px solid #594333;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
-        .quotes-container {
-            padding-top: 10px;
-        }
-
-        .book-info {
-            margin-bottom: 35px;
-            padding-bottom: 25px;
+        .metadata {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px 35px;
+            padding: 15px 0 35px;
             border-bottom: 1px solid #49382b;
         }
 
-        .book-info h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 37px;
-            color: #e6c994;
-            font-weight: 500;
-        }
-
-        .book-info p {
-            color: #a99582;
-            font-size: 13px;
-            margin-top: 8px;
-        }
-
-        .quote-card {
-            position: relative;
-            padding: 28px 30px;
-            margin-bottom: 25px;
-            background: #211914;
-            border-left: 2px solid #a77b4f;
-        }
-
-        .quote-mark {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 55px;
-            line-height: 35px;
-            color: #a77b4f;
-        }
-
-        .quote-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 25px;
-            line-height: 1.7;
-            color: #f0e2cf;
-            margin: 15px 0 25px;
-        }
-
-        .quote-details {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
+        .meta-item span {
+            display: block;
             color: #a99582;
             font-size: 11px;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
-        .empty-message {
-            color: #b9a999;
+        .meta-item p {
+            color: #eadbc7;
+            font-size: 14px;
+        }
+
+        .rating {
+            color: #d6b77a !important;
+            font-size: 18px !important;
+            letter-spacing: 3px;
+        }
+
+        .section {
+            margin-top: 45px;
+        }
+
+        .section h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 25px;
-            text-align: center;
-            padding: 50px 10px;
+            font-size: 32px;
+            color: #d6b77a;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            color: #c9b9a8;
+            font-size: 14px;
+            line-height: 2.1;
+            white-space: pre-line;
+        }
+
+        .quote-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #d6b77a;
+            text-decoration: none;
+            border-bottom: 1px solid #a77b4f;
+            padding-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .quote-link:hover {
+            color: #fff0d7;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 25px;
-            color: #d6b77a;
+            margin-top: 55px;
+            color: #b9a999;
             text-decoration: none;
             font-size: 13px;
         }
 
         .back-link:hover {
-            color: #f4eadb;
+            color: #d6b77a;
+        }
+
+        .not-found {
+            text-align: center;
+            padding: 100px 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 30px;
+            color: #d6b77a;
         }
 
         footer {
@@ -199,32 +230,34 @@
                 justify-content: center;
             }
 
-            .content {
+            .fanart-banner {
+                height: 280px;
+            }
+
+            .book-container {
+                margin-top: -40px;
+            }
+
+            .book-heading h1 {
+                font-size: 42px;
+            }
+
+            .book-info {
                 grid-template-columns: 1fr;
                 gap: 35px;
             }
 
-            .fanart-container {
-                position: static;
-                max-width: 350px;
-                margin: auto;
+            .cover-container {
+                text-align: center;
             }
 
-            .fanart {
-                min-height: 400px;
-                max-height: 500px;
+            .cover-container img {
+                height: 310px;
+                width: 210px;
             }
 
-            .book-info h2 {
-                font-size: 31px;
-            }
-
-            .quote-text {
-                font-size: 22px;
-            }
-
-            .page-title h1 {
-                font-size: 40px;
+            .metadata {
+                gap: 22px 15px;
             }
         }
     </style>
@@ -243,46 +276,108 @@
         </nav>
     </header>
 
-    <section class="page-title">
-        <h1>Words to Remember</h1>
-        <p>A collection of moments preserved in words.</p>
-        <div class="divider"></div>
-    </section>
+    <div class="fanart-banner">
+        <img id="fanart" src="" alt="Book Fan Art">
+    </div>
 
-    <main class="content">
+    <main class="book-container" id="bookContent">
 
-        <aside class="fanart-container">
-            <img
-                id="fanart"
-                class="fanart"
-                src="images/default-fanart.jpg"
-                alt="Book Fan Art"
-            >
-        </aside>
+        <section class="book-heading">
+            <h1 id="bookTitle"></h1>
+            <p id="bookAuthor"></p>
+            <div class="divider"></div>
+        </section>
 
-        <section class="quotes-container">
+        <section class="book-info">
 
-            <div class="book-info">
-                <h2 id="bookTitle">Loading...</h2>
-                <p id="bookAuthor"></p>
+            <div class="cover-container">
+                <img id="bookCover" src="" alt="Book Cover">
             </div>
 
-            <div id="quotesList"></div>
+            <div class="details">
 
-            <a href="quotes.html" class="back-link">
-                ← Back to Favorite Quotes
-            </a>
+                <div class="metadata">
+
+                    <div class="meta-item">
+                        <span>Author</span>
+                        <p id="author"></p>
+                    </div>
+
+                    <div class="meta-item">
+                        <span>Translator</span>
+                        <p id="translator"></p>
+                    </div>
+
+                    <div class="meta-item">
+                        <span>Publisher</span>
+                        <p id="publisher"></p>
+                    </div>
+
+                    <div class="meta-item">
+                        <span>Genre</span>
+                        <p id="genre"></p>
+                    </div>
+
+                    <div class="meta-item">
+                        <span>Pages</span>
+                        <p id="pages"></p>
+                    </div>
+
+                    <div class="meta-item">
+                        <span>Reading Status</span>
+                        <p id="status"></p>
+                    </div>
+
+                    <div class="meta-item">
+                        <span>Started Reading</span>
+                        <p id="startDate"></p>
+                    </div>
+
+                    <div class="meta-item">
+                        <span>Finished Reading</span>
+                        <p id="finishDate"></p>
+                    </div>
+
+                    <div class="meta-item">
+                        <span>My Rating</span>
+                        <p class="rating" id="rating"></p>
+                    </div>
+
+                </div>
+
+                <section class="section">
+                    <h2>About the Book</h2>
+                    <p id="summary"></p>
+                </section>
+
+                <section class="section">
+                    <h2>My Thoughts</h2>
+                    <p id="review"></p>
+                </section>
+
+                <a href="#" id="quotesLink" class="quote-link">
+                    Explore Favorite Quotes →
+                </a>
+
+            </div>
 
         </section>
 
+        <a href="books.html" class="back-link" id="backLink">
+            ← Back to My Books
+        </a>
+
     </main>
+
+    <div class="not-found" id="notFound" hidden>
+        Book Not Found
+    </div>
 
     <footer>
         BETWEEN THE PAGES — A PERSONAL LITERARY ARCHIVE
     </footer>
 
     <script src="books.js"></script>
-    <script src="quotes.js"></script>
 
     <script>
         const params = new URLSearchParams(window.location.search);
@@ -290,78 +385,78 @@
 
         const book = books.find(item => item.id === bookId);
 
-        const quotesList = document.getElementById("quotesList");
+        function setText(id, value) {
+            document.getElementById(id).textContent =
+                value || "—";
+        }
+
+        function displayRating(rating) {
+            if (rating === null || rating === undefined || rating === "") {
+                return "Not rated yet";
+            }
+
+            const value = Math.max(0, Math.min(5, Number(rating)));
+            const fullStars = Math.floor(value);
+            const halfStar = value % 1 >= 0.5 ? 1 : 0;
+            const emptyStars = 5 - fullStars - halfStar;
+
+            return "★".repeat(fullStars) +
+                   "◐".repeat(halfStar) +
+                   "☆".repeat(emptyStars) +
+                   ` (${value}/5)`;
+        }
 
         if (book) {
 
             document.title = `${book.title} | Between the Pages`;
 
-            document.getElementById("bookTitle").textContent = book.title;
+            setText("bookTitle", book.title);
+            setText("bookAuthor", book.author);
 
-            document.getElementById("bookAuthor").textContent =
-                book.author || "";
+            setText("author", book.author);
+            setText("translator", book.translator);
+            setText("publisher", book.publisher);
+            setText("genre", book.genre);
+            setText("pages", book.pages ? `${book.pages} pages` : "");
+            setText("startDate", book.startDate);
+            setText("finishDate", book.finishDate);
+            setText("summary", book.summary);
+            setText("review", book.review);
+
+            document.getElementById("rating").textContent =
+                displayRating(book.rating);
+
+            setText(
+                "status",
+                book.status === "read" ? "Read" : "Want to Read"
+            );
+
+            if (book.cover) {
+                document.getElementById("bookCover").src = book.cover;
+            }
 
             if (book.fanart) {
                 document.getElementById("fanart").src = book.fanart;
             }
 
-            const bookQuotes = quotes.filter(
-                quote => quote.bookId === bookId
-            );
+            document.getElementById("quotesLink").href =
+                `book-quotes.html?id=${encodeURIComponent(book.id)}`;
 
-            if (bookQuotes.length === 0) {
-                quotesList.innerHTML = `
-                    <div class="empty-message">
-                        No quotes have been added for this book yet.
-                    </div>
-                `;
-            } else {
+            if (book.status === "want_to_read") {
+                document.getElementById("backLink").href =
+                    "reading-list.html";
 
-                bookQuotes.forEach(quote => {
-
-                    const card = document.createElement("article");
-                    card.className = "quote-card";
-
-                    const mark = document.createElement("div");
-                    mark.className = "quote-mark";
-                    mark.textContent = "“";
-
-                    const text = document.createElement("p");
-                    text.className = "quote-text";
-                    text.textContent = quote.text;
-
-                    const details = document.createElement("div");
-                    details.className = "quote-details";
-
-                    const chapter = document.createElement("span");
-                    chapter.textContent = quote.chapter || "";
-
-                    const page = document.createElement("span");
-                    page.textContent = quote.page
-                        ? `Page ${quote.page}`
-                        : "";
-
-                    details.append(chapter, page);
-                    card.append(mark, text, details);
-
-                    quotesList.appendChild(card);
-                });
+                document.getElementById("backLink").textContent =
+                    "← Back to Reading List";
             }
 
         } else {
 
-            document.getElementById("bookTitle").textContent =
-                "Book Not Found";
+            document.getElementById("bookContent").hidden = true;
+            document.getElementById("notFound").hidden = false;
 
-            document.getElementById("bookAuthor").textContent = "";
-
-            quotesList.innerHTML = `
-                <div class="empty-message">
-                    This book could not be found.
-                </div>
-            `;
         }
     </script>
 
 </body>
-  </html>
+    </html>
